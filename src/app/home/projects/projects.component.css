@@ -1,0 +1,153 @@
+ /* Reset and Base Styles */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ html,
+ body {
+     width: 100%;
+     min-height: 100%;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     line-height: 1.6;
+     color: #333;
+ }
+
+ /* Projects Section */
+ .projects {
+     padding: 6vw 2vw;
+     background-color: #f9f9f9;
+ }
+
+ .title {
+     text-align: center;
+     padding-left: 29vw;
+     margin-bottom: 3rem;
+ }
+
+ .title h2 {
+     font-size: 3.5vw;
+     color: #2c3e50;
+     margin-bottom: .5vw;
+     letter-spacing: 1px;
+     font-family: 'Science Gothic', sans-serif;
+ }
+
+ .title hr {
+     width: 10vw;
+     height: 2px;
+     background: #616161;
+     margin: 0 auto 1rem;
+     border: none;
+     border-radius: 2px;
+ }
+
+ .desc {
+     max-width: 700px;
+     margin: 0 auto;
+     color: #666;
+     font-size: 1.1rem;
+     line-height: 1.7;
+ }
+
+ /* Responsive Design */
+ @media (max-width: 768px) {
+     .projects {
+         padding: 3rem 1.5rem;
+     }
+
+     .title h2 {
+         font-size: 2rem;
+     }
+
+     .desc {
+         font-size: 1rem;
+         padding: 0 1rem;
+     }
+ }
+
+ #prj-desc {
+     background-color: #111;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 2vw 2vw;
+     color: #fff;
+ }
+
+ .one .title p {
+     color: #fff;
+ }
+
+ .one {
+     display: flex;
+     align-items: center;
+     text-align: center;
+     gap: 9vw;
+
+ }
+
+ .prj-one-images img {
+     width: 32vw;
+     height: 16vw;
+ }
+
+ .descript {
+     width: 25vw;
+ }
+
+ .title-one {
+     width: 20vw;
+     margin-bottom: 0vw;
+
+ }
+
+ .title-one p {
+     font-size: 2.2vw;
+ }
+
+ /* projects-section.css */
+ section {
+     display: flex;
+     align-items: center;
+     gap: 9vw;
+     margin-bottom: 5vw;
+     padding: 2vw 0;
+ }
+
+ .descript {
+     width: 25vw;
+ }
+
+ .descript .content {
+     width: 20vw;
+     text-align: justify;
+     font-size: 1.1vw;
+     line-height: 1.6;
+     color: #ffffff;
+     margin-top: 1vw;
+ }
+
+ .descript .content p {
+     margin-top: 1vw;
+ }
+
+ .prj-one-images img {
+     width: 32vw;
+     height: 18vw;
+     object-fit: cover;
+     border-radius: 8px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .normal {
+     margin-bottom: 1.5vw;
+ }
+
+ #sec2 {
+     background-color: black;
+     width: 100%;
+     padding: 0vw 30vw;
+ }

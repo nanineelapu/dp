@@ -1,0 +1,139 @@
+#about {
+    height: 100vh;
+    background-color: transparent;
+    padding: 3vw 0vw;
+}
+
+.resume-btn.light {
+    position: relative;
+    z-index: 1;
+    padding: 12px 26px;
+    text-decoration: none;
+    color: #111;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    background: transparent;
+    border: 2px solid #111;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    text-align: center;
+    min-width: 150px;
+    box-shadow:
+        0 2px 4px rgba(255, 255, 255, 0.05),
+        0 18px 35px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.35s ease;
+}
+
+.resume-btn.light:hover {
+    background: #111;
+    color: #fff;
+    backdrop-filter: blur(2px);
+    transform: translateY(-2px);
+    box-shadow:
+        0 4px 8px rgba(255, 255, 255, 0.08),
+        0 28px 55px rgba(0, 0, 0, 0.75);
+}
+
+.right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0vw;
+    padding: 0vw;
+}
+
+.content {
+    display: flex;
+    padding: 4vw 10vw;
+    gap: 15%;
+    text-align: justify;
+}
+
+.left {
+    position: relative;
+    padding-left: 2.5vw;
+    margin-left: 1.5vw;
+}
+
+.left::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, #616161, transparent);
+}
+
+.left::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2vw;
+    height: 2px;
+    background: linear-gradient(to right, #616161, transparent);
+}
+
+.left .left-content {
+    margin: 3vw 0;
+    padding-top: 1.5vw;
+    position: relative;
+}
+
+.left .left-content::before {
+    content: '';
+    position: absolute;
+    left: -2.5vw;
+    top: 2vw;
+    width: 1.5vw;
+    height: 2px;
+    background: #616161;
+}
+
+.right img {
+    width: 30vw;
+    height: 25vw;
+    object-fit: cover;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.section-title {
+    margin-top: 2vw;
+    text-align: center;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 2.6vw;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333;
+    font-family: "Science Gothic";
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: #666;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title span {
+    display: block;
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}

@@ -1,0 +1,129 @@
+<section id="contact">
+  <!-- Premium Black / White / Grey Portfolio Footer -->
+<footer class="premium-footer">
+  <div class="pf-wrapper">
+
+    <!-- Identity -->
+
+    <div class="pf-brand">
+        <img src="" alt="">
+      <h2 style="color: black;">Nani Neelapu</h2>
+      <p>Java Full-Stack Developer · Clean Systems · Real Results</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="pf-contact" style="color: black;">
+      <a href="mailto:neelapunani2580@gmail.com"  style="color: black;">neelapunani2580&#64;gmail.com</a>
+      <a href="tel:+917661891711" style="color: #333;">+91 76618 91711</a>
+      <span style="color: #333;">Available for freelance & full-time roles</span>
+    </div>
+
+    <!-- Meta -->
+    <div class="pf-meta">
+      <span>Deployed on Render</span>
+      <span>Built with focus, not trends</span>
+    </div>
+
+  </div>
+
+  <div class="pf-bottom">
+    <span>© 2025 Nani Neelapu</span>
+  </div>
+</footer>
+
+<style>
+/* ==============================
+   PREMIUM FOOTER – DARK MINIMAL
+============================== */
+.premium-footer {
+  background: linear-gradient(180deg, #ffffff, #ffffff);
+  color: #111;
+  padding: 80px 50px 30px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.pf-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 50px;
+}
+
+/* Identity */
+.pf-brand h2 {
+  font-size: 28px;
+  color: #1111;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+
+}
+
+.pf-brand p {
+  font-size: 14px;
+  color: #111;
+  max-width: 360px;
+}
+
+/* Contact */
+.pf-contact a {
+  display: block;
+  font-size: 14px;
+  color: #1111;
+  text-decoration: none;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.pf-contact a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.pf-contact a:hover::after {
+  width: 100%;
+}
+
+.pf-contact span {
+  font-size: 13px;
+  color: #3333;
+}
+
+/* Meta */
+.pf-meta span {
+  display: block;
+  font-size: 13px;
+  color: #8a8a8a;
+  margin-bottom: 8px;
+}
+
+/* Bottom */
+.pf-bottom {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #262626;
+  text-align: center;
+  font-size: 13px;
+  color: #3333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pf-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .pf-contact a::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+</style>
+</section>

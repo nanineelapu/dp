@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <!-- Left: Logo -->
+  <a href="#" class="logo" (click)="$event.preventDefault()">
+    <i class="fa-brands fa-pied-piper-hat"></i>
+  </a>
+
+  <!-- Middle: Navigation Links -->
+  <ul class="nav-links">
+    <li>
+      <a href="#home" data-text="Home" [style.color]="'white'" [style.fontWeight]="'700'" (click)="scrollToSection('#home', $event)">Home</a>
+    </li>
+    <li><a href="#about" data-text="About" (click)="scrollToSection('#about', $event)">About</a></li>
+    <li><a href="#contact" data-text="Contact" (click)="scrollToSection('#contact', $event)">Contact</a></li>
+    <li><a href="#projects" data-text="Projects" (click)="scrollToSection('#projects', $event)">Projects</a></li>
+    <li><a href="#services" data-text="Services" (click)="scrollToSection('#services', $event)">Services</a></li>
+    <li><a href="#skills" data-text="skills" (click)="scrollToSection('#skills', $event)">Skills</a></li>
+
+  </ul>
+
+  <!-- Right: Resume Button -->
+  <a href="resume.pdf" class="resume-btn" download>Download Resume</a>
+</nav>

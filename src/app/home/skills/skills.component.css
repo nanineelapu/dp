@@ -1,0 +1,226 @@
+/* Main container */
+.total-section {
+    min-height: 24vw;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 0.2vw;
+    padding: 1.5vw 0;
+}
+
+section {
+    padding: 1vw 4vw;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Title styles */
+.title {
+    text-align: center;
+    margin: 0 0 4vw 0;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.title h2 {
+    font-size: 2.6vw;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #111;
+    font-family: 'Science Gothic';
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.title h2 {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.title h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: #666;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.title hr {
+    display: none;
+    /* Hide the hr element as we're using the ::after pseudo-element */
+}
+
+.title .desc p {
+    color: #aaa;
+    font-size: 1.1vw;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Skills container */
+.skills-container {
+    display: flex;
+    gap: 1.5vw;
+    flex-wrap: wrap;
+}
+
+/* Skills list */
+.skills-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    min-width: 22vw;
+    max-width: 100%;
+}
+
+/* Skill item */
+.skill-item {
+    background-color: #333;
+    color: #fff;
+    padding: 1.2vw 1vw;
+    border-radius: 0.6vw;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-left: 0.3vw solid transparent;
+    min-height: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.skill-item:hover,
+.skill-item.active {
+    background-color: #e1e1e1;
+    transform: translateX(0.8vw);
+    border-left-color: #222;
+    color: #111;
+}
+
+.skill-item h4 {
+    margin: 0;
+    font-size: 1.2vw;
+    font-weight: 500;
+}
+
+/* Skill description area */
+.skill-description {
+    flex: 2;
+    background-color: #f8f9fa;
+    border-radius: 0.6vw;
+    padding: 1.8vw;
+    color: #111;
+    min-height: 20vw;
+    box-shadow: 0 0.15vw 0.6vw rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease;
+}
+
+.description-content {
+    min-height: 16vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description-content h3 {
+    color: #222;
+    margin: 0 0 1vw 0;
+    font-size: 1.8vw;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.description-content p {
+    line-height: 1.5;
+    color: #333;
+    margin: 0 0 1.5vw 0;
+    font-size: 1.1vw;
+    transition: all 0.25s ease;
+}
+
+/* Icons container */
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    padding: 1.5vw 0 0;
+    color: #333;
+    transition: all 0.25s ease;
+}
+
+.icons i {
+    font-size: 3vw;
+    transition: transform 0.25s ease;
+}
+
+.icons i:hover {
+    transform: scale(1.08);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+        gap: 2.5vw;
+    }
+
+    .skills-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5vw;
+        min-width: 100%;
+    }
+
+    .skill-item {
+        flex: 1 1 calc(50% - 0.75vw);
+        min-height: 6vw;
+        padding: 1.5vw 0.8vw;
+    }
+
+    .skill-item h4 {
+        font-size: 1.6vw;
+    }
+
+    .skill-description {
+        min-height: 25vw;
+        padding: 1.5vw;
+    }
+
+    .description-content {
+        min-height: 14vw;
+    }
+
+    .description-content h3 {
+        font-size: 2.4vw;
+        margin-bottom: 0.8vw;
+    }
+
+    .description-content p {
+        font-size: 1.6vw;
+        margin-bottom: 1.2vw;
+    }
+
+    .icons {
+        padding: 1.2vw 0 0;
+    }
+
+    .icons i {
+        font-size: 4.5vw;
+    }
+}
+
+/* Hide icons when a skill is active */
+:host-context(.active-skill) .icons {
+    display: none;
+}
