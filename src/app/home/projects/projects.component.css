@@ -16,14 +16,14 @@
 
  /* Projects Section */
  .projects {
-     padding: 6vw 2vw;
+     padding-top: 6vw;
      background-color: #f9f9f9;
+
  }
 
  .title {
      text-align: center;
      padding-left: 29vw;
-     margin-bottom: 3rem;
  }
 
  .title h2 {
@@ -34,10 +34,21 @@
      font-family: 'Science Gothic', sans-serif;
  }
 
+ .title h2::after {
+     content: '';
+     position: absolute;
+     width: 60px;
+     height: 3px;
+     background: #666;
+     bottom: -10px;
+     left: 50%;
+     transform: translateX(-50%);
+ }
+
  .title hr {
      width: 10vw;
-     height: 2px;
-     background: #616161;
+     height: 4px;
+     background: #979797;
      margin: 0 auto 1rem;
      border: none;
      border-radius: 2px;
@@ -94,6 +105,12 @@
      height: 16vw;
  }
 
+ .prj-one-images {
+     display: flex;
+     gap: 3vw;
+
+ }
+
  .descript {
      width: 25vw;
  }
@@ -101,11 +118,16 @@
  .title-one {
      width: 20vw;
      margin-bottom: 0vw;
+     width: 150%;
+     align-items: center;
+     gap: 5vw;
+     display: flex;
 
  }
 
  .title-one p {
      font-size: 2.2vw;
+     text-shadow: 0 2px 3px rgba(255, 255, 255, 0.952);
  }
 
  /* projects-section.css */
@@ -113,7 +135,6 @@
      display: flex;
      align-items: center;
      gap: 9vw;
-     margin-bottom: 5vw;
      padding: 2vw 0;
  }
 
@@ -138,8 +159,8 @@
      width: 32vw;
      height: 18vw;
      object-fit: cover;
-     border-radius: 8px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     filter: brightness(.95);
  }
 
  .normal {
@@ -149,5 +170,59 @@
  #sec2 {
      background-color: black;
      width: 100%;
-     padding: 0vw 30vw;
+     display: flex;
+     padding: 2vw 2vw;
+ }
+
+ #sec2 {
+     overflow: hidden;
+ }
+
+ .prj-one-images {
+     display: flex;
+     will-change: transform;
+ }
+
+
+
+ /* divider */
+ .normal {
+     width: 100%;
+     height: 2px;
+     background: linear-gradient(90deg,
+             rgba(0, 0, 0, 0.2),
+             rgba(0, 0, 0, 0.8),
+             rgba(0, 0, 0, 0.2));
+ }
+
+
+ .main-title {
+     display: flex;
+     width: 100%;
+     text-align: center;
+     justify-content: center;
+     font-size: 2.7vw;
+     color: #fff;
+     gap: 2.5vw;
+     padding: 2vw 0vw;
+ }
+
+ /* .line {
+     width: 80%;
+     height: 1px;
+     margin-top: 3vw;
+     background: linear-gradient(90deg,
+             rgba(255, 255, 255, 0.934),
+             rgba(255, 255, 255, 0.934),
+             rgba(255, 255, 255, 0.934));
+ } */
+
+ .line {
+     width: 100%;
+     height: 1px;
+     margin: 3.5rem 0;
+     background: linear-gradient(90deg,
+             transparent,
+             rgba(255, 255, 255, 0.913),
+             transparent);
  }

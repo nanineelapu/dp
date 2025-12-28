@@ -10,7 +10,7 @@
     height: 100vh;
     width: 100%;
     padding-top: 15vw;
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/naniportfolio-cadd2.appspot.com/o/Final%20portfolio%20image.png?alt=media&token=91388f74-4f64-4bfe-bae4-9ce7b155c0b0");
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/naniportfolio-cadd2.appspot.com/o/Portfolio%20icons%20angula%2Ffinal%20image.png?alt=media&token=fb2124fa-89d0-41a5-8563-1b36cc4b8155");
     background-size: cover;
     background-position: calc(50% + 405px) center;
     background-repeat: no-repeat;
@@ -104,4 +104,90 @@
     display: flex;
     margin-left: 25vw;
     padding: .6vw 0vw;
+}
+
+@media (max-width: 1024px) {
+    .home {
+        padding-top: 20vh;
+        padding-left: 5vw;
+        background-position: center;
+    }
+
+    .home-content h1 {
+        font-size: 4vw;
+        letter-spacing: 0.3vw;
+    }
+
+    .home-title h6 {
+        font-size: 2vw;
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    .icons {
+        gap: 3vw;
+    }
+
+    .i1 i {
+        font-size: 3vw;
+    }
+
+    .btn-title h5 {
+        font-size: 2.2vw;
+    }
+
+    .buttons {
+        margin-left: 0;
+        justify-content: center;
+        gap: 4vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        padding-top: 25vh;
+        padding-left: 0;
+        justify-content: center;
+        background-position: center;
+        text-align: center;
+    }
+
+    .home-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-title {
+        margin-bottom: 6vh;
+        padding: 4vw;
+    }
+
+    .home-title h6 {
+        font-size: 4vw;
+        justify-content: center;
+    }
+
+    .home-content h1 {
+        font-size: 7vw;
+        letter-spacing: 0.2vw;
+    }
+
+    .icons {
+        gap: 6vw;
+        justify-content: center;
+    }
+
+    .i1 i {
+        font-size: 6vw;
+    }
+
+    .buttons {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 4vw;
+    }
+
+    .btn-title h5 {
+        font-size: 4.5vw;
+    }
 }

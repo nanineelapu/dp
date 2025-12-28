@@ -1,43 +1,47 @@
 <section class="skills" id="skills">
   <div class="title">
     <h2>Skills</h2>
-    <hr>
+    <hr />
     <div class="desc">
       <p>
-        I possess a diverse set of technical skills that enable me to build robust and efficient web applications.
-        From frontend development to backend services, I continuously expand my expertise.
+        I possess a diverse set of technical skills that enable me to build
+        robust and efficient web applications. From frontend development to
+        backend services, I continuously expand my expertise.
       </p>
     </div>
   </div>
-    <div class="total-section">
-        <div class="skills-container">
-            <div class="skills-list">
-                <div class="skill-item" 
-                     *ngFor="let skill of skillKeys"
-                     (mouseenter)="setSkill(skill)"
-                     (mouseleave)="clearSkill()"
-                     [class.active]="activeSkill === skill">
-                    <h4>{{ skillData[skill].title }}</h4>
-                </div>
-            </div>
-            
-            <div class="skill-description" [class.visible]="true">
-                <div class="description-content">
-                    <ng-container *ngIf="!activeSkill">
-                        <h3 style="color: #222;">My Skills</h3>
-                        <p>{{ overallDescription }}</p>
-                        <div class="icons">
-                            <i class="fa-brands fa-java"></i>
-                            <i class="fa-brands fa-angular"></i>
-                            <i class="fa-regular fa-file-code"></i>
-                        </div>
-                    </ng-container>
-                    <ng-container *ngIf="activeSkill">
-                        <h3>{{ skillData[activeSkill].title }}</h3>
-                        <p>{{ skillData[activeSkill].description }}</p>
-                    </ng-container>
-                </div>
-            </div>
+  <div class="total-section">
+    <div class="skills-container">
+      <div class="skills-list">
+        <div
+          class="skill-item"
+          *ngFor="let skill of skillKeys"
+          (mouseenter)="onSkillEnter(skill, $event)"
+          (mouseleave)="onSkillLeave($event)"
+          [class.active]="activeSkill === skill"
+        >
+          <h4>{{ skillData[skill].title }}</h4>
         </div>
+      </div>
+
+      <div class="skill-description" #skillDescription [class.visible]="true">
+        <div class="description-content">
+          <ng-container *ngIf="!activeSkill">
+            <h3 style="color: #222">My Skills</h3>
+            <p>{{ overallDescription }}</p>
+            <div class="icons">
+              <i class="fa-brands fa-java"></i>
+              <i class="fa-brands fa-angular"></i>
+              <i class="fa-regular fa-file-code"></i>
+              <i class="fa-brands fa-react"></i>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="activeSkill">
+            <h3>{{ skillData[activeSkill].title }}</h3>
+            <p>{{ skillData[activeSkill].description }}</p>
+          </ng-container>
+        </div>
+      </div>
     </div>
+  </div>
 </section>

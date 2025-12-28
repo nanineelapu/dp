@@ -1,12 +1,34 @@
-<nav [class.dark]="isDark" class="navbar" [class.scrolled]="scrolled">
-  <a href="#" class="logo" style="text-decoration: none; font-weight: 800; font-size: 2vw;">A</a>
-  <ul [class.dark]="isDark" class="nav-links">
-    <li><a (click)="scrollTo('home')">Home</a></li>
-    <li><a (click)="scrollTo('about')">About</a></li>
-    <li><a (click)="scrollTo('services')">Services</a></li>
-    <li><a (click)="scrollTo('skills')">Skills</a></li>
-    <li><a (click)="scrollTo('projects')">Projects</a></li>
-    <li><a (click)="scrollTo('contact')">Contact</a></li>
+<nav
+  [class.dark]="isDark"
+  class="navbar"
+  [class.scrolled]="scrolled"
+  [class.menu-open]="isMenuOpen"
+>
+  <a
+    href="#"
+    class="logo"
+    style="text-decoration: none; font-weight: 800; font-size: 2vw"
+    >N'P</a
+  >
+
+  <!-- Hamburger Menu Button -->
+  <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+
+  <!-- Navigation Links -->
+  <ul [class.dark]="isDark" class="nav-links" [class.active]="isMenuOpen">
+    <li><a (click)="navigateAndClose('home')">Home</a></li>
+    <li><a (click)="navigateAndClose('about')">About</a></li>
+    <li><a (click)="navigateAndClose('services')">Services</a></li>
+    <li><a (click)="navigateAndClose('skills')">Skills</a></li>
+    <li><a (click)="navigateAndClose('projects')">Projects</a></li>
+    <li><a (click)="navigateAndClose('contact')">Contact</a></li>
+    <li class="mobile-resume">
+      <a href="#" class="resume-btn">Download Resume</a>
+    </li>
   </ul>
-  <a href="#" class="resume-btn">Download Resume</a>
+  <a href="#" class="resume-btn desktop-resume">Download Resume</a>
 </nav>
