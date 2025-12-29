@@ -7,12 +7,12 @@
 
 
 .home {
-    height: 100vh;
+    height: 102vh;
     width: 100%;
-    padding-top: 15vw;
+    padding-top: 0vw;
     background-image: url("https://firebasestorage.googleapis.com/v0/b/naniportfolio-cadd2.appspot.com/o/Portfolio%20icons%20angula%2Ffinal%20image.png?alt=media&token=fb2124fa-89d0-41a5-8563-1b36cc4b8155");
     background-size: cover;
-    background-position: calc(50% + 405px) center;
+    background-position: calc(20% + 405px) center;
     background-repeat: no-repeat;
 
     display: flex;
@@ -48,7 +48,7 @@
     margin-bottom: 9vw;
     align-items: center;
     text-align: center;
-    padding: 1vw 2vw;
+    padding: 5vw 2vw;
 
 
 }
@@ -110,7 +110,7 @@
     .home {
         padding-top: 20vh;
         padding-left: 5vw;
-        background-position: center;
+        background-position: 35% center;
     }
 
     .home-content h1 {
@@ -122,6 +122,7 @@
         font-size: 2vw;
         justify-content: center;
         margin-right: 0;
+
     }
 
     .icons {
@@ -144,45 +145,66 @@
 }
 
 @media (max-width: 768px) {
-    .home {
-        padding-top: 25vh;
-        padding-left: 0;
-        justify-content: center;
-        background-position: center;
-        text-align: center;
-    }
-
-    .home-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .home-title {
-        margin-bottom: 6vh;
-        padding: 4vw;
+        text-align: left;
+        width: 90%;
+        margin: 0 auto 3vh;
+        padding: 0;
+        margin-bottom: 80vw;
     }
 
     .home-title h6 {
-        font-size: 4vw;
-        justify-content: center;
+        font-size: 3.5vw;
+        text-align: left;
+        justify-content: flex-start;
+
     }
 
     .home-content h1 {
-        font-size: 7vw;
-        letter-spacing: 0.2vw;
-    }
-
-    .icons {
-        gap: 6vw;
-        justify-content: center;
-    }
-
-    .i1 i {
         font-size: 6vw;
+        line-height: 1.2;
+        letter-spacing: 0.1em;
+        text-align: left;
+        width: 100%;
+    }
+
+    .line2::after {
+        content: "I'm Nani";
+    }
+
+    .line2 {
+        visibility: hidden;
+        position: relative;
+    }
+
+    .line2::after {
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .line1,
+    .line2,
+    .line3 {
+        display: block;
+        width: 100%;
+    }
+
+    .line3 {
+        margin-top: 0.5rem;
     }
 
     .buttons {
+        display: flex;
+        /* don’t assume, declare it */
         flex-direction: column;
+        align-items: flex-start;
+        /* 👈 START (left) */
+        justify-content: flex-start;
+        /* 👈 START (top) */
+        position: relative;
         margin-left: 0;
         gap: 4vw;
     }
