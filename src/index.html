@@ -4,12 +4,14 @@
     <meta charset="utf-8" />
     <title>nani.webapp.portfolio</title>
     <base href="/" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap"
       rel="stylesheet"
@@ -18,8 +20,193 @@
       href="https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap"
       rel="stylesheet"
     />
+
+    <!-- GSAP CDN -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0b0b0b;
+        color: #fff;
+        overflow: hidden;
+        font-family: "Science Gothic", sans-serif;
+      }
+
+      /* PRELOADER */
+      .preloader {
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, #111 0%, #000 70%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      .loader-box {
+        text-align: center;
+      }
+
+      .percentage {
+        font-size: clamp(48px, 8vw, 96px);
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .label {
+        font-size: 12px;
+        letter-spacing: 4px;
+        opacity: 0.6;
+        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .brand {
+        margin-top: 14px;
+        font-size: 14px;
+        letter-spacing: 3px;
+        opacity: 0;
+        transform: translateY(12px);
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .subtitle {
+        margin-top: 4px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 300;
+      }
+
+      .line {
+        width: 260px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.15);
+        margin: 24px auto 0;
+        overflow: hidden;
+      }
+
+      .line span {
+        display: block;
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #fff, #999);
+      }
+
+      /* Angular initial hidden state */
+      app-root {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+    </style>
   </head>
+
   <body>
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+      <div class="loader-box">
+        <div class="percentage" id="percentage">0%</div>
+        <div class="label">LOADING</div>
+        <div class="brand" id="brand">Nani's Portfolio</div>
+        <div
+          class="subtitle"
+          id="subtitle"
+          style="opacity: 0; transform: translateY(12px)"
+        >
+          Frontend Developer & Designer
+        </div>
+        <div class="line"><span id="progress"></span></div>
+      </div>
+    </div>
+
+    <!-- ANGULAR ROOT -->
     <app-root></app-root>
+
+    <!-- PRELOADER SCRIPT -->
+    <script>
+      const preloader = document.getElementById("preloader");
+      const percentage = document.getElementById("percentage");
+      const progress = document.getElementById("progress");
+      const brand = document.getElementById("brand");
+
+      let counter = { value: 0 };
+
+      // 1. Percentage loading
+      gsap.to(counter, {
+        value: 100,
+        duration: 2.2,
+        ease: "power2.out",
+        onUpdate: () => {
+          const v = Math.round(counter.value);
+          percentage.textContent = v + "%";
+          progress.style.width = v + "%";
+        },
+        onComplete: () => {
+          // 2. Show portfolio name and subtitle after loading
+          const subtitle = document.getElementById("subtitle");
+
+          gsap.to(brand, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            onComplete: () => {
+              // Show subtitle after brand appears
+              gsap.to(subtitle, {
+                opacity: 0.8,
+                y: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                delay: 0.2,
+              });
+            },
+          });
+        },
+      });
+
+      // 3. On real page load
+      window.addEventListener("load", () => {
+        // Force scroll to top
+        window.scrollTo(0, 0);
+
+        const tl = gsap.timeline({ delay: 0.6 });
+
+        tl.to(".loader-box", {
+          y: -30,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.in",
+        })
+          .to(
+            preloader,
+            {
+              opacity: 0,
+              duration: 0.8,
+              ease: "power2.out",
+            },
+            "-=0.2"
+          )
+          .set(preloader, { display: "none" })
+          .to(
+            "app-root",
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 1,
+              ease: "power2.out",
+            },
+            "-=0.3"
+          );
+
+        document.body.style.overflow = "auto";
+      });
+    </script>
   </body>
 </html>
