@@ -4,25 +4,35 @@
     box-sizing: border-box;
 }
 
-
+/* Prevent any audio playback */
+audio {
+    display: none !important;
+}
 
 .home {
     height: 100vh;
     width: 100%;
     padding-top: 0vw;
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/naniportfolio-cadd2.appspot.com/o/Portfolio%20icons%20angula%2Ffinal%20image.png?alt=media&token=fb2124fa-89d0-41a5-8563-1b36cc4b8155");
-    background-size: cover;
-    background-position: calc(20% + 405px) center;
-    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
 
     display: flex;
     align-items: center;
     /* vertical center is fine */
     justify-content: flex-start;
-    /* 👈 THIS moves content to left */
+    /* THIS moves content to left */
     padding-left: 6vw;
-    /* 👈 space from left edge */
-    position: relative;
+    /* space from left edge */
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
 /* Optional dark overlay for readability */
@@ -116,7 +126,6 @@
     .home {
         padding-top: 20vh;
         padding-left: 5vw;
-        background-position: center center;
     }
 
     .home-content h1 {
@@ -156,7 +165,7 @@
         width: 90%;
         margin: 0 auto 3vh;
         padding: 0;
-        margin-bottom: 100vw;
+        margin-bottom: 2rem;
     }
 
     .home-title h6 {

@@ -351,6 +351,71 @@
             });
           }
 
+          // Ensure complete audio muting across the webpage
+          const muteAllAudio = () => {
+            // Mute all existing video and audio elements
+            document.querySelectorAll("video, audio").forEach((media) => {
+              media.muted = true;
+              media.volume = 0;
+            });
+
+            // Prevent any new audio from playing
+            const observer = new MutationObserver((mutations) => {
+              mutations.forEach((mutation) => {
+                mutation.addedNodes.forEach((node) => {
+                  if (node.nodeName === "VIDEO" || node.nodeName === "AUDIO") {
+                    node.muted = true;
+                    node.volume = 0;
+                  }
+                  // Also check child nodes
+                  if (node.querySelectorAll) {
+                    node.querySelectorAll("video, audio").forEach((media) => {
+                      media.muted = true;
+                      media.volume = 0;
+                    });
+                  }
+                });
+              });
+            });
+
+            // Start observing the entire document
+            observer.observe(document.body, {
+              childList: true,
+              subtree: true,
+            });
+          };
+
+          // Call this immediately and after DOM is loaded
+          muteAllAudio();
+
+          // Ensure video plays despite browser autoplay policies
+          const ensureVideoPlays = () => {
+            const video = document.querySelector(".background-video");
+            if (video) {
+              // Try to play the video
+              const playPromise = video.play();
+
+              if (playPromise !== undefined) {
+                playPromise.catch((error) => {
+                  console.log(
+                    "Autoplay was prevented, adding user interaction fallback"
+                  );
+                  // Add click listener to start video on first user interaction
+                  const startVideo = () => {
+                    video.play();
+                    document.removeEventListener("click", startVideo);
+                    document.removeEventListener("touchstart", startVideo);
+                  };
+                  document.addEventListener("click", startVideo);
+                  document.addEventListener("touchstart", startVideo);
+                });
+              }
+            }
+          };
+
+          // Call this after DOM is loaded
+          ensureVideoPlays();
+
           // Add navbar component animations
           setTimeout(() => {
             // Animate home section background
