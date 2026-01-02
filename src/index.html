@@ -351,6 +351,51 @@
             });
           }
 
+          // Pause video during scrolling for smoother performance
+          let scrollTimeout;
+          let isScrolling = false;
+          let hasPlayedOnce = false;
+          const video = document.querySelector(".background-video");
+
+          const handleScroll = () => {
+            if (!video) return;
+
+            // Pause video when scrolling starts
+            if (!isScrolling) {
+              isScrolling = true;
+              video.pause();
+            }
+
+            // Clear existing timeout
+            clearTimeout(scrollTimeout);
+
+            // Resume video after scrolling stops (only if it hasn't played once yet)
+            scrollTimeout = setTimeout(() => {
+              isScrolling = false;
+              if (video && video.paused && !hasPlayedOnce) {
+                video
+                  .play()
+                  .then(() => {
+                    // Mark as played once when video starts playing
+                    hasPlayedOnce = true;
+                  })
+                  .catch((e) => console.log("Video autoplay prevented"));
+              }
+            }, 150); // Resume after 150ms of no scrolling
+          };
+
+          // Add event listener for video end to prevent replay
+          if (video) {
+            video.addEventListener("ended", () => {
+              hasPlayedOnce = true;
+              // Keep video at the last frame
+              video.currentTime = video.duration;
+            });
+          }
+
+          // Add scroll event listener
+          window.addEventListener("scroll", handleScroll, { passive: true });
+
           // Ensure complete audio muting across the webpage
           const muteAllAudio = () => {
             // Mute all existing video and audio elements

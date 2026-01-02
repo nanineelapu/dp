@@ -323,18 +323,18 @@
     will-change: background-color, color;
 }
 
-/* Light text for dark backgrounds */
+/* Light text for dark backgrounds (when at top of page) */
 .navbar:not(.dark) .nav-links a,
 .navbar:not(.dark) .logo,
 .navbar:not(.dark) .hamburger-line {
-    color: white;
+    color: white !important;
 }
 
 /* Dark text for light backgrounds */
 .navbar.dark .nav-links a,
 .navbar.dark .logo,
 .navbar.dark .hamburger-line {
-    color: black;
+    color: black !important;
 }
 
 /* Scrolled state */
